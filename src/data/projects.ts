@@ -1,4 +1,3 @@
-import type { PortfolioProject } from './portfolio'
 import { portfolioProjects } from './portfolio'
 
 export type AppStat = { value: string; label: string }
