@@ -552,3 +552,59 @@
   .bento__kicker { font-size: 10.5px; }
   .bento__build-desc { font-size: 12px; }
 }
+
+
+/* ---------- Portfolio project cards ---------- */
+.bento__card--project {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 190px;
+  padding: clamp(16px, 1.4vw, 24px);
+  text-decoration: none;
+}
+.bento__card--project .bento__head {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 0;
+}
+.bento__card--project .bento__title {
+  font-size: clamp(15px, 1.15vw, 20px);
+  line-height: 1.2;
+}
+.bento__card--project .bento__desc {
+  line-height: 1.5;
+}
+.bento__project-link {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 16px;
+  padding: 8px 11px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--line-strong);
+  color: var(--navy);
+  background: var(--white);
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform var(--dur-med) var(--ease-spring), border-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+.bento__project-link:hover {
+  transform: translate(2px, -2px);
+  border-color: var(--orange);
+  color: var(--orange-ink);
+}
+.agrid__cap-title {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.agrid__cap-title small {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.4;
+  font-weight: 500;
+}
