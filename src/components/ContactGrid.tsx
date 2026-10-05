@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from 'react'
-import { PaperPlaneTilt, CheckCircle, WarningCircle, ArrowUpRight, CaretDown, LinkedinLogo } from '@/components/slab'
+import { PaperPlaneTilt, CheckCircle, WarningCircle, ArrowUpRight, CaretDown } from '@/components/slab'
 import { FAQS } from '@/data/faqs'
 import { profile } from '@/data/profile'
 import { readLead, submitLead, SubmitError, MAX_NAME, MAX_EMAIL, MAX_MESSAGE, type SubmitResult } from '@/lib/contact'
@@ -73,7 +73,7 @@ export default function ContactGrid() {
           <div className="cgrid__direct">
             {linkedin ? (
               <a className="cgrid__mail" href={linkedin.href} target="_blank" rel="noopener noreferrer">
-                <LinkedinLogo size={16} weight="fill" aria-hidden="true" />
+                <img src="/icons/linkedin.svg" alt="" width="16" height="16" />
                 <span>Connect with me on LinkedIn</span>
               </a>
             ) : null}
