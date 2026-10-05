@@ -1,16 +1,4 @@
-/**
- * YOUR IDENTITY - start here.
- *
- * Everything that says who you are lives in this file: name, handle, photo,
- * socials, email and the Home headline. Every value below is a PLACEHOLDER.
- * Replace the text, or hand this file to your AI assistant and tell it what
- * to put in each field.
- *
- * Page-specific copy (projects, services, testimonials, FAQs) lives in the
- * other files in src/data/ and at the top of each view component.
- */
-
-import { Briefcase, SealCheck, Clock, type Icon } from '@/components/slab'
+import { Briefcase, Sparkle, Globe, type Icon } from '@/components/slab'
 
 export type SocialLink = {
   label: string
@@ -18,59 +6,45 @@ export type SocialLink = {
   iconPath: string
 }
 
-/** A proof fact on the phone's Home: a glyph, a short value, a caption. */
 export type Stat = { value: string; label: string; Icon: Icon }
 
 export type Profile = {
   name: string
-  /** First name, used in "Hi, I'm ___." on About. */
   firstName: string
   handle: string
-  /** Short role line under the handle on phones. */
   role: string
-  /** Square image. An SVG, WebP or PNG with a transparent background looks best. */
   avatarSrc: string
-  /** Tooltip / screen-reader label on the verified tick next to your name. */
   verifiedLabel: string
   email: string
   location: string
-  /** Three short proof facts shown on phones under the Home lede. */
   stats: Stat[]
   displayName: { line1: string; line2: string }
-  hero: {
-    body: string
-    portraitSrc: string
-    portraitAlt: string
-  }
+  hero: { body: string; portraitSrc: string; portraitAlt: string }
   socials: SocialLink[]
 }
 
 export const profile: Profile = {
-  name: 'Your Name',
-  firstName: 'Your Name',
-  handle: '@yourhandle',
-  role: 'PLACEHOLDER - your title',
-  avatarSrc: '/avatar.svg',
-  verifiedLabel: 'PLACEHOLDER - what the tick means (e.g. a certification)',
-  email: 'you@example.com',
-  location: 'PLACEHOLDER - your city or timezone',
-  // Pick any icon from https://phosphoricons.com and import it above.
+  name: 'Ferdinand De Gracia',
+  firstName: 'Ferdinand',
+  handle: '@ferdz',
+  role: 'AI systems builder · full-stack developer · digital creator',
+  avatarSrc: 'https://avatars.githubusercontent.com/u/316400087?v=4',
+  verifiedLabel: 'Ferdz portfolio profile',
+  email: '',
+  location: 'Philippines · GMT+8',
   stats: [
-    { value: '0 yrs', label: 'PLACEHOLDER', Icon: Briefcase },
-    { value: '#000', label: 'PLACEHOLDER', Icon: SealCheck },
-    { value: 'GMT+0', label: 'PLACEHOLDER', Icon: Clock },
+    { value: '20+', label: 'builds', Icon: Briefcase },
+    { value: 'AI + Web', label: 'focus', Icon: Sparkle },
+    { value: 'GMT+8', label: 'timezone', Icon: Globe },
   ],
-  // The intro types this line, then flies it into the Home headline.
-  // Keep it short: two halves, 5-8 words total.
-  displayName: { line1: 'Your headline here.', line2: 'Keep it short.' },
+  displayName: { line1: 'I build useful', line2: 'digital systems.' },
   hero: {
-    body: 'PLACEHOLDER - one line on what you do and who you do it for.',
-    portraitSrc: '/avatar.svg',
-    portraitAlt: 'Portrait placeholder',
+    body: 'I build web apps, AI-assisted tools, automation workflows, media products and cloud-powered systems — from idea to working software.',
+    portraitSrc: 'https://avatars.githubusercontent.com/u/316400087?v=4',
+    portraitAlt: 'Ferdinand De Gracia',
   },
   socials: [
-    { label: 'Facebook profile', href: '#', iconPath: '/icons/facebook.svg' },
-    { label: 'LinkedIn profile', href: '#', iconPath: '/icons/linkedin.svg' },
-    { label: 'Discord profile', href: '#', iconPath: '/icons/discord.svg' },
+    { label: 'GitHub profile', href: 'https://github.com/dinanski123', iconPath: '/icons/github.svg' },
+    { label: 'LinkedIn profile', href: 'https://www.linkedin.com/in/ferdinanddegracia', iconPath: '/icons/linkedin.svg' },
   ],
 }
