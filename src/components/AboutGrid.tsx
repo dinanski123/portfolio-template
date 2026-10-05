@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react'
-import { ArrowUpRight, MapPin } from '@/components/slab'
+import { ArrowUpRight, MapPin, GraduationCap, Certificate } from '@/components/slab'
 import { profile } from '@/data/profile'
 
 type Capability = {
@@ -9,10 +9,10 @@ type Capability = {
 }
 
 const CAPABILITIES: Capability[] = [
-  { index: '01', title: 'AI & automation', detail: 'AI-assisted tools, workflows, transcription, knowledge systems and practical automation.' },
-  { index: '02', title: 'Full-stack web', detail: 'Responsive web apps, PWAs, dashboards, admin tools and polished product interfaces.' },
-  { index: '03', title: 'Media & music systems', detail: 'Music platforms, media browsers, streaming workflows, audio tools and video utilities.' },
-  { index: '04', title: 'Cloud & operations', detail: 'Cloudflare, Supabase, GitHub and monitoring-oriented systems that are built to ship.' },
+  { index: '01', title: 'AI-assisted product development', detail: 'Research, prototyping, coding, debugging, testing, documentation and iteration using AI-assisted development workflows.' },
+  { index: '02', title: 'Web & mobile applications', detail: 'Standalone applications, portfolio experiences, administrative tools, database-backed workflows and mobile-ready products.' },
+  { index: '03', title: 'Workflow & business process automation', detail: 'Automation and process improvement focused on making repetitive digital work more efficient.' },
+  { index: '04', title: 'UI/UX & rapid prototyping', detail: 'User-focused interface design, rapid prototyping, product branding and consistent visual identity.' },
 ]
 
 export default function AboutGrid() {
@@ -21,20 +21,16 @@ export default function AboutGrid() {
       <header className="pgrid__head">
         <span className="pgrid__eyebrow">About</span>
         <h1 className="pgrid__title" id="about-title">Hi, I’m {profile.firstName}.</h1>
-        <p className="pgrid__lede">I like turning ideas into working products — especially where AI, automation, web technology and media meet.</p>
+        <p className="pgrid__lede">{profile.hero.body}</p>
       </header>
 
       <div className="home__glass agrid__glass">
         <div className="agrid__copy">
-          <p className="agrid__lead">
-            I build digital products that are practical, visual and usable.
-            <span> The goal is always to turn an idea into something people can actually use.</span>
-          </p>
+          <p className="agrid__lead">{profile.summary}</p>
 
           <p className="agrid__note">
-            My work ranges from <strong>AI-assisted software and automation</strong> to web apps,
-            media systems, PWAs and cloud tooling. I enjoy owning the whole path from product idea
-            and interface to deployment and ongoing iteration.
+            Through <strong>SynthIQ</strong>, I design, build, test, deploy, and continuously improve
+            web and mobile experiences while exploring practical ways AI can support and accelerate modern product development.
           </p>
 
           <ul className="agrid__caps" role="list">
@@ -56,22 +52,17 @@ export default function AboutGrid() {
 
           <div className="agrid__bar">
             <span className="agrid__cell">
-              <span className="agrid__cell-mark">
-                <MapPin size={16} weight="fill" aria-hidden="true" />
-              </span>
+              <span className="agrid__cell-mark"><MapPin size={16} weight="fill" aria-hidden="true" /></span>
               <span className="agrid__cell-copy">
                 <span className="agrid__cell-title">{profile.location}</span>
-                <span className="agrid__cell-meta">Primary working timezone</span>
+                <span className="agrid__cell-meta">Based on the supplied profile</span>
               </span>
             </span>
-
-            <a className="agrid__cell agrid__cell--wide" href="https://github.com/dinanski123" target="_blank" rel="noopener noreferrer">
-              <span className="agrid__cell-mark agrid__cell-mark--plain">
-                <img src="/icons/github.svg" alt="" loading="lazy" decoding="async" />
-              </span>
+            <a className="agrid__cell agrid__cell--wide" href="https://www.linkedin.com/in/ferdinanddegracia" target="_blank" rel="noopener noreferrer">
+              <span className="agrid__cell-mark agrid__cell-mark--plain"><img src="/icons/linkedin.svg" alt="" loading="lazy" decoding="async" /></span>
               <span className="agrid__cell-copy">
-                <span className="agrid__cell-title">GitHub</span>
-                <span className="agrid__cell-meta">Projects, experiments and source</span>
+                <span className="agrid__cell-title">LinkedIn</span>
+                <span className="agrid__cell-meta">Professional profile</span>
               </span>
               <ArrowUpRight className="agrid__cell-go" size={15} weight="bold" aria-hidden="true" />
             </a>
@@ -82,6 +73,51 @@ export default function AboutGrid() {
           <img src={profile.hero.portraitSrc} alt={profile.hero.portraitAlt} loading="eager" decoding="async" width={400} height={400} />
         </div>
       </div>
+
+      <div className="home__glass agrid__details">
+        <div className="agrid__details-head">
+          <span className="pgrid__eyebrow">Professional background</span>
+          <h2 className="agrid__details-title">Experience, skills & education.</h2>
+        </div>
+
+        <div className="agrid__timeline">
+          {profile.experience.map((job) => (
+            <article key={job.company + job.title} className="agrid__job">
+              <div className="agrid__job-top">
+                <div>
+                  <h3>{job.title}</h3>
+                  <strong>{job.company}</strong>
+                </div>
+                <span>{job.dates}</span>
+              </div>
+              {job.location ? <small className="agrid__job-location">{job.location}</small> : null}
+              <p>{job.summary}</p>
+              <ul>
+                {job.bullets.slice(0, 6).map((bullet) => <li key={bullet}>{bullet}</li>)}
+              </ul>
+            </article>
+          ))}
+        </div>
+
+        <div className="agrid__credentials">
+          <div className="agrid__credential">
+            <GraduationCap size={20} weight="duotone" aria-hidden="true" />
+            <div><strong>{profile.education.school}</strong><span>{profile.education.degree} · {profile.education.dates}</span></div>
+          </div>
+          <div className="agrid__credential">
+            <Certificate size={20} weight="duotone" aria-hidden="true" />
+            <div><strong>Certification</strong><span>{profile.certification}</span></div>
+          </div>
+          <div className="agrid__credential">
+            <SparkleIcon />
+            <div><strong>Top skills</strong><span>{profile.skills.join(' · ')}</span></div>
+          </div>
+        </div>
+      </div>
     </section>
   )
+}
+
+function SparkleIcon() {
+  return <span aria-hidden="true" style={{ fontSize: 18 }}>✦</span>
 }
